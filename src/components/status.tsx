@@ -89,7 +89,7 @@ const Status: React.FC<Props> = ({ status, isExpanded, isMain }) => {
             >
               {images.map((f, index) => {
                 return (
-                  <a key={index} href={f.url}>
+                  <a key={index} href={getPathWithBase(f.url)}>
                     {f.blurhash && hasSensitiveContent && (
                       <Blurhash
                         hash={f.blurhash}

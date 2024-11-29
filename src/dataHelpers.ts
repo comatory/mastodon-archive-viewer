@@ -100,8 +100,17 @@ export function getPreviousPosts(post: OutboxPost) {
   return result;
 }
 
+function normalizePath(path: string) {
+  const segments = path.split('/');
+  // Remove the first non-empty segment (index 1, as index 0 is empty due to leading slash)
+  segments.splice(1, 1);
+  
+  // Join the remaining segments back into a path
+  return segments.join('/');
+}
+
 export function getPathWithBase(path: string) {
   return import.meta.env.BASE_URL === "/"
-    ? path
-    : import.meta.env.BASE_URL + "/" + path.replace(/^\//, "");
+    ? normalizePath(path)
+    : import.meta.env.BASE_URL + "/" + normalizePath(path).replace(/^\//, "");
 }
