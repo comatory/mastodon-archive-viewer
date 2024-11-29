@@ -16,6 +16,7 @@ import { join } from "node:path";
  */
 
 let changeCounter = 0;
+/** @type {Array<string>} */
 const logs = [];
 
 /**
@@ -56,7 +57,13 @@ async function main() {
     throw new Error("Invalid JSON format");
   }
 
-  const output = json.orderedItems.reduce((acc, status) => {
+  const output = json.orderedItems.reduce(
+     /**
+   * @param {Array<Status>} acc
+   * @param {Status} status
+   * @returns {Array<Status>}
+   */
+    (acc, status) => {
     if (!status.object?.attachment) {
       return acc;
     }
