@@ -8,6 +8,15 @@ A demo is available at https://eramdam.github.io/mastodon-archive-viewer/
 
 This project is provided as-is, without any warranty.
 
+# Quick start
+
+1. Clone the repo
+2. Run `npm install`
+3. Run `npm start`
+4. Terminal will show you the local URL where the site is running
+
+You should be able to see the site with example data.
+
 # Usage
 
 You will need:
