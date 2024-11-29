@@ -18,7 +18,7 @@ You will need:
 
 1. Clone this repository
 2. Extract your Mastodon archive
-3. Place the following files inside the `archive-data` folder:
+3. Place the following files inside the `data` folder:
 
 - `actor.json`
 - `outbox.json`
