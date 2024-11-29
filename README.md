@@ -29,13 +29,22 @@ You will need:
 - `avatar.jpg`
 - `header.jpg`
 
-5. (Optional) Create a `.env` file with the following content if you want to show "private" (non public and non unlisted) posts from the archive. Those posts won't shown by default:
+4. Make sure to set your `SITE_URL` in `.env` to match your deployment URL.
+
+5. (Optional) Modify `.env` file with the following content if you want to show "private" (non public and non unlisted) posts from the archive. Those posts won't shown by default:
 
 ```
 SHOW_PRIVATE_POSTS=true
 ```
 
-6. Tweak the values in `astro.config.mjs` if you want to change the base URL of the generated site
+6. (Optional) Modify `.env` file with the following content if you want to use different base path on your server, for example this:
+
+```
+BASE_PATH=/mastodon-archive-viewer
+```
+
+Will make sure the site is hosted on `https://<your domain>/mastodon-archive-viewer/`
+
 7. Run `npm install` and `npm run build`
 8. The generated site will be in the `dist` folder
 

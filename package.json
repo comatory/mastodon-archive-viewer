@@ -12,6 +12,7 @@
     "astro": "astro",
     "typecheck": "tsc --noEmit",
     "typecheck:watch": "tsc --noEmit --watch",
+    "postinstall": "cp .env.example .env",
     "seed": "cp docs/example/data/* data/ && cp -r docs/example/public/* public/"
   },
   "dependencies": {
