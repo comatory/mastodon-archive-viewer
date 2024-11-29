@@ -39,7 +39,6 @@ function normalizePath(path) {
   // Join the remaining segments back into a path
   const newPath = segments.join("/");
 
-
   logs.push(`${path} -> ${newPath}`);
 
   return newPath;
@@ -58,32 +57,34 @@ async function main() {
   }
 
   const output = json.orderedItems.reduce(
-     /**
-   * @param {Array<Status>} acc
-   * @param {Status} status
-   * @returns {Array<Status>}
-   */
+    /**
+     * @param {Array<Status>} acc
+     * @param {Status} status
+     * @returns {Array<Status>}
+     */
     (acc, status) => {
-    if (!status.object?.attachment) {
-      return acc;
-    }
+      if (!status.object?.attachment) {
+        return acc;
+      }
 
-    const attachments = status.object.attachment.map((attachment) => ({
-      ...attachment,
-      ...("url" in attachment ? { url: normalizePath(attachment.url) } : {}),
-    }));
+      const attachments = status.object.attachment.map((attachment) => ({
+        ...attachment,
+        ...("url" in attachment ? { url: normalizePath(attachment.url) } : {}),
+      }));
 
-    return [
-      ...acc,
-      {
-        ...status,
-        object: {
-          ...status.object,
-          attachment: attachments,
+      return [
+        ...acc,
+        {
+          ...status,
+          object: {
+            ...status.object,
+            attachment: attachments,
+          },
         },
-      },
-    ];
-  }, []);
+      ];
+    },
+    [],
+  );
 
   await writeFile(
     OUTBOX_PATH,
