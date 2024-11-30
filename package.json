@@ -10,7 +10,6 @@
     "deploy": "rimraf dist && npm run build",
     "preview": "astro preview",
     "astro": "astro",
-    "fix:attachments-url": "node scripts/fix-attachments-url.mjs",
     "typecheck": "tsc --noEmit",
     "typecheck:watch": "tsc --noEmit --watch"
   },
